@@ -26,7 +26,7 @@ def BooleanField(default=NOTHING, required=True, repr=True, cmp=True,
     validator = _init_fields.init_validator(required, bool)
     metadata = _field_metadata(metadata, key=key)
     return attrib(default=default, validator=validator, repr=repr, cmp=cmp,
-                  metadata=metadata)
+                  metadata=metadata, type=bool)
 
 
 def ChildField(cls, default=NOTHING, required=True, repr=True, cmp=True,
@@ -49,7 +49,7 @@ def ChildField(cls, default=NOTHING, required=True, repr=True, cmp=True,
     )
     metadata = _field_metadata(metadata, key=key)
     return attrib(default=default, converter=converter, validator=validator,
-                  repr=repr, cmp=cmp, metadata=metadata)
+                  repr=repr, cmp=cmp, metadata=metadata, type=cls)
 
 
 def DateField(formatter=types.DEFAULT_DATE_FORMAT, default=NOTHING,
@@ -93,7 +93,7 @@ def DateTimeField(formatter=types.DEFAULT_DATETIME_FORMAT, default=NOTHING,
     metadata = _field_metadata(metadata, formatter=formatter, key=key)
     return attrib(default=default, converter=converter, validator=validator,
                   repr=repr, cmp=cmp,
-                  metadata=metadata)
+                  metadata=metadata, type=datetime)
 
 
 def TimeField(formatter=types.DEFAULT_TIME_FORMAT, default=NOTHING,
@@ -135,7 +135,7 @@ def FloatField(default=NOTHING, required=True, repr=True, cmp=True,
     metadata = _field_metadata(metadata, key=key)
     return attrib(default=default, converter=converters.float_if_not_none,
                   validator=validator, repr=repr, cmp=cmp,
-                  metadata=metadata)
+                  metadata=metadata, type=float)
 
 
 def IntegerField(default=NOTHING, required=True, repr=True, cmp=True,
@@ -155,7 +155,7 @@ def IntegerField(default=NOTHING, required=True, repr=True, cmp=True,
     metadata = _field_metadata(metadata, key=key)
     return attrib(default=default, converter=converters.int_if_not_none,
                   validator=validator, repr=repr, cmp=cmp,
-                  metadata=metadata)
+                  metadata=metadata, type=int)
 
 
 def MappingField(cls, child_key, default=NOTHING, required=True, repr=False,
@@ -219,7 +219,7 @@ def SequenceField(cls, default=NOTHING, required=True, repr=False, key=None, met
     validator = _init_fields.init_validator(required, types.TypedSequence)
     metadata = _field_metadata(metadata, key=key)
     return attrib(default=default, converter=converter, validator=validator,
-                  repr=repr, metadata=metadata)
+                  repr=repr, metadata=metadata, type=)
 
 
 def SetField(cls, default=NOTHING, required=True, repr=False, key=None, metadata=None):
