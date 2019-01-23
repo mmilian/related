@@ -219,7 +219,7 @@ def SequenceField(cls, default=NOTHING, required=True, repr=False, key=None, met
     validator = _init_fields.init_validator(required, types.TypedSequence)
     metadata = _field_metadata(metadata, key=key)
     return attrib(default=default, converter=converter, validator=validator,
-                  repr=repr, metadata=metadata, type=)
+                  repr=repr, metadata=metadata, type=default)
 
 
 def SetField(cls, default=NOTHING, required=True, repr=False, key=None, metadata=None):
