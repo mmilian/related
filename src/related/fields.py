@@ -259,7 +259,7 @@ def StringField(default=NOTHING, required=True, repr=True, cmp=True,
     metadata = _field_metadata(metadata, key=key)
     return attrib(default=default, converter=converters.str_if_not_none,
                   validator=validator, repr=repr, cmp=cmp,
-                  metadata=metadata)
+                  metadata=metadata, type=str)
 
 
 def URLField(default=NOTHING, required=True, repr=True, cmp=True, key=None, metadata=None):
